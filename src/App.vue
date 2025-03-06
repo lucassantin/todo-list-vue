@@ -22,7 +22,32 @@
     </section>
     <section>
       <p>Pick a category</p>
-      
+      <div class="grid grid-cols-2 gap-4">
+        <label class="flex justify-center items-center bg-stone-800 rounded-lg">
+          <div  class="flex flex-col justify-center items-center gap-1.5 p-6">
+            <input 
+            class="w-6 h-6 checked:bg-blue-800"
+            type="radio" 
+            name="category" 
+            id="category1" 
+            value="business"
+            v-model="input_category" />
+            <p class="text-3xl font-bold">Business</p>
+          </div>
+        </label>
+        <label class="flex justify-center items-center bg-stone-800 rounded-lg">
+          <div  class="flex flex-col justify-center items-center gap-1.5 p-6">
+            <input 
+            class="w-6 h-6"
+            type="radio" 
+            name="category" 
+            id="category1" 
+            value="business"
+            v-model="input_category" />
+            <p class="text-3xl font-bold">Personal</p>
+          </div>
+        </label>
+      </div>
     </section>
   </main>
 </template>
