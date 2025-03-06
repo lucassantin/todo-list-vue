@@ -42,7 +42,7 @@
 </script>
 
 <template>
-  <main class="flex max-w-[1920px]">
+  <main class="flex max-w-[1920px] bg-[#131516] text-white">
     <section class="flex flex-col w-dvw h-screen p-8 gap-4 ">
       <section>
         <p class="text-4xl font-bold">What's up, <input placeholder="Name here" type="text" v-model="name"></p>
@@ -52,7 +52,7 @@
           <p class="text-2xl  font-semibold  text-stone-200">CREATE A TODO</p>
           <p class="text-stone-200">What's on your todo list?</p>
         </div>
-        <input class="w-full p-2 bg-stone-800" type="text" placeholder="e.g. make a video" v-model="input_content" />
+        <input class="w-full p-2 bg-zinc-900 opacity-85" type="text" placeholder="e.g. make a video" v-model="input_content" />
       </section>
       <section>
         <p class="pb-2 text-stone-200 text-2xl font-medium">Pick a category</p>
@@ -82,13 +82,13 @@
             </div>
           </label>
         </div>
-        <button @click="addTodo" class="w-full bg-stone-800 text-xl rounded-lg font-bold py-2 mt-4 active:bg-slate-700 active:scale-98 transition-transform">Add Todo</button>
+        <button @click="addTodo" class="w-full bg-zinc-900 opacity-85 text-xl rounded-lg font-bold py-2 mt-4 active:bg-slate-700 active:scale-98 transition-transform">Add Todo</button>
       </section>
       <section>
         <p class="text-stone-200 text-2xl font-medium mb-4">Todo List</p>
         <div v-for="(todo, index) in todos" :key="index" :class="['flex flex-row items-center justify-between py-2 p-3 rounded-lg mb-3 w-full', todo.category === 'business' ? 'bg-indigo-700 opacity-90' : 'bg-emerald-700 opacity-90']">
           <input type="checkbox" :checked="todo.done" @change="toggleDone(todo)" class="size-6">
-          <p class="text-lg font-medium break-all w-[60%] sm:w-[90%]">{{ todo.content }}</p>
+          <p class="text-lg font-medium break-all w-[60%] sm:w-[87%]">{{ todo.content }}</p>
           <button @click="removeTodo(todo)" class="right-2 text-xl text-white font-semibold py-0.5 px-2.5 rounded-sm bg-red-600">Delete</button>
         </div>
       </section>
