@@ -42,9 +42,10 @@
 </script>
 
 <template>
-  <main class="flex flex-col w-dvw h-screen p-8 gap-4">
+  <main class="flex max-w-[1920px]">
+    <section class="flex flex-col w-dvw h-screen p-8 gap-4 ">
     <section>
-      <p class="text-4xl font-bold">What's up, <input class="w-44 " placeholder="Name here" type="text" v-model="name"></p>
+      <p class="text-4xl font-bold">What's up, <input placeholder="Name here" type="text" v-model="name"></p>
     </section>
     <section class="flex flex-col gap-3">
       <div>
@@ -65,7 +66,7 @@
             id="category1" 
             value="business"
             v-model="input_category" />
-            <p class="text-3xl font-bold">Business</p>
+            <p class="sm:text-3xl text-2xl font-bold">Business</p>
           </div>
         </label>
         <label class="flex justify-center items-center bg-emerald-700 rounded-lg">
@@ -77,7 +78,7 @@
             id="category1" 
             value="personal"
             v-model="input_category" />
-            <p class="text-3xl font-bold">Personal</p>
+            <p class="sm:text-3xl text-2xl font-bold">Personal</p>
           </div>
         </label>
       </div>
@@ -87,10 +88,11 @@
       <p class="text-stone-200 text-2xl font-medium mb-4">Todo List</p>
       <div v-for="(todo, index) in todos" :key="index" :class="['flex flex-row items-center justify-between py-2 p-3 rounded-lg mb-3 w-full', todo.category === 'business' ? 'bg-indigo-700 opacity-90' : 'bg-emerald-700 opacity-90']">
         <input type="checkbox" :checked="todo.done" @change="toggleDone(todo)" class="size-6">
-        <p class="text-lg font-medium break-all w-[87%]">{{ todo.content }}</p>
+        <p class="text-lg font-medium break-all w-[60%] sm:w-[90%]">{{ todo.content }}</p>
         <button @click="removeTodo(todo)" class="right-2 text-xl text-white font-semibold py-0.5 px-2.5 rounded-sm bg-red-600">Delete</button>
       </div>
     </section>
+  </section>
   </main>
 </template>
 
