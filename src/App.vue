@@ -42,7 +42,7 @@
 </script>
 
 <template>
-  <main class="flex max-w-[1920px] bg-[#131516] text-white">
+  <main class="flex max-w-[1920px] text-white">
     <section class="flex flex-col w-dvw h-screen p-8 gap-4 ">
       <section>
         <p class="text-4xl font-bold">What's up, <input placeholder="Name here" type="text" v-model="name"></p>
@@ -52,7 +52,7 @@
           <p class="text-2xl  font-semibold  text-stone-200">CREATE A TODO</p>
           <p class="text-stone-200">What's on your todo list?</p>
         </div>
-        <input class="w-full p-2 bg-zinc-900 opacity-85" type="text" placeholder="e.g. make a video" v-model="input_content" />
+        <input class="w-full p-2 bg-zinc-800  rounded-lg" type="text" placeholder="e.g. make a video" v-model="input_content" />
       </section>
       <section>
         <p class="pb-2 text-stone-200 text-2xl font-medium">Pick a category</p>
@@ -82,7 +82,7 @@
             </div>
           </label>
         </div>
-        <button @click="addTodo" class="w-full bg-zinc-900 opacity-85 text-xl rounded-lg font-bold py-2 mt-4 active:bg-slate-700 active:scale-98 transition-transform">Add Todo</button>
+        <button @click="addTodo" class="w-full bg-zinc-800 text-xl rounded-lg font-bold py-2 mt-4 active:bg-slate-700 active:scale-98 transition-transform">Add Todo</button>
       </section>
       <section>
         <p class="text-stone-200 text-2xl font-medium mb-4">Todo List</p>

@@ -13,5 +13,6 @@ body {
   display: flex;
   justify-content: center;
   overflow-x: hidden;
+  background-color: #131516;
 }
 
