@@ -3,7 +3,7 @@
 
   const name = ref(localStorage.getItem('name') || '');
 
-  const todos = ref([]);
+  const todos = ref(JSON.parse(localStorage.getItem('todos')) || []);
   const input_content = ref('');
   const input_category = ref('');
 
@@ -16,16 +16,29 @@
       content: input_content.value,
       category: input_category.value,
       done: false
-    })
+    });
+
+    input_content.value = '';
+    input_category.value = null;
   }
 
   const removeTodo = (todo) => {
     todos.value = todos.value.filter((t) => t!== todo);
   }
 
+  const toggleDone = (todo) => {
+    todo.done = !todo.done;
+  }
+
   watch(name, (newName) => {
     localStorage.setItem('name', newName);
   })
+
+  watch(todos, (newVal) => {
+	localStorage.setItem('todos', JSON.stringify(newVal))
+}, {
+	deep: true
+})
 </script>
 
 <template>
@@ -73,14 +86,11 @@
     <section>
       <p class="text-stone-200 text-2xl font-medium mb-4">Todo List</p>
       <div v-for="(todo, index) in todos" :key="index" :class="['flex flex-row items-center justify-between py-2 p-3 rounded-lg mb-3 w-full', todo.category === 'business' ? 'bg-indigo-700 opacity-90' : 'bg-emerald-700 opacity-90']">
-        <input type="checkbox" class="size-6">
-        <p class="text-lg font-medium break-all w-[80%]">{{ todo.content }}</p>
+        <input type="checkbox" :checked="todo.done" @change="toggleDone(todo)" class="size-6">
+        <p class="text-lg font-medium break-all w-[87%]">{{ todo.content }}</p>
         <button @click="removeTodo(todo)" class="right-2 text-xl text-white font-semibold py-0.5 px-2.5 rounded-sm bg-red-600">Delete</button>
       </div>
     </section>
   </main>
 </template>
 
-<style scoped>
-
-</style>
